@@ -22,4 +22,4 @@ In the CKEditor configuration file (config.js) add the following code:
 
 If you custom the toolbar,please add 'allMedias' in 'name'.
 
-如果你懂中文，请来 http://codeex.cn/ck
+如果你懂中文，请来 http://codeex.cn/category/web/ck
