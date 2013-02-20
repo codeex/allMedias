@@ -1,7 +1,7 @@
-allMedias----- CKEditor plugin
+allmedias----- CKEditor plugin
 =========
 
-allMedias for the CKEditor's plugin,the plugin supports many medias,it's embed .
+allmedias for the CKEditor's plugin,the plugin supports many medias,it's embed .
 
 Support media format:
 =========
@@ -18,7 +18,7 @@ Installation
 Extract the contents of the file into the "plugins" folder of CKEditor.
 In the CKEditor configuration file (config.js) add the following code:
 
-        config.extraPlugins = '[ allMedias ]';
+        config.extraPlugins = '[ allmedias ]';
 
 If you custom the toolbar,please add 'allMedias' in 'name'.
 
