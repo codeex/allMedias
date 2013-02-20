@@ -16,7 +16,7 @@
 		return editor.createFakeParserElement( realElement, 'cke_allMedias', 'allMedias', true );
 	}
 
-	CKEDITOR.plugins.add( 'allMedias', {
+	CKEDITOR.plugins.add( 'allmedias', {
 		requires: 'dialog,fakeobjects',
 		lang: 'en,zh-cn,zh', // %REMOVE_LINE_CORE%
 		icons: 'allMedias', // %REMOVE_LINE_CORE%

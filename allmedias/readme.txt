@@ -8,7 +8,7 @@ allMedias多媒体插件
 
  安装本插件非常简单了，在配置(config.js)里增加插件的引用
 
-    config.extraPlugins = 'allMedias';
+    config.extraPlugins = 'allmedias';
 
 如果采用了定制的工具栏，请在定制里加入'allMedias'.
 v1.00 by codeex.cn
