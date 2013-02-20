@@ -21,3 +21,5 @@ In the CKEditor configuration file (config.js) add the following code:
         config.extraPlugins = '[ allMedias ]';
 
 If you custom the toolbar,please add 'allMedias' in 'name'.
+
+如果你懂中文，请来 http://codeex.cn/ck
