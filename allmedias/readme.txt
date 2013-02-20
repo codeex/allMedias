@@ -12,4 +12,4 @@ allMedias多媒体插件
 
 如果采用了定制的工具栏，请在定制里加入'allMedias'.
 v1.00 by codeex.cn
-最新开发消息请访问http://codeex.cn/ck
+最新开发消息请访问 http://codeex.cn/category/web/ck ， 欢迎加qq群：173171134
