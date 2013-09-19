@@ -35,7 +35,7 @@
 		hSpace: [ {type: ATTRTYPE_OBJECT, name: 'hSpace'}, {type: ATTRTYPE_EMBED, name: 'hSpace'}],
 		id: [ {type: ATTRTYPE_OBJECT, name: 'id'}],
 		loop: [ {type: ATTRTYPE_PARAM, name: 'loop'}, {type: ATTRTYPE_EMBED, name: 'loop'}],
-		mtype: [ {type: ATTRTYPE_OBJECT, name: 'mtype'}, {type: ATTRTYPE_EMBED, name: 'mtype'}],	//add by webmote	
+		mtype: [ {type: ATTRTYPE_OBJECT, name: 'mtype'}, {type: ATTRTYPE_EMBED, name: 'mtype'}],	//add by webmote
 		menu: [ {type: ATTRTYPE_PARAM, name: 'menu'}, {type: ATTRTYPE_EMBED, name: 'menu'}],
 		name: [ {type: ATTRTYPE_EMBED, name: 'name'}],
 		pluginspage: [ {type: ATTRTYPE_EMBED, name: 'pluginspage'}],
@@ -52,12 +52,12 @@
 		wmode: [ {type: ATTRTYPE_PARAM, name: 'wmode'}, {type: ATTRTYPE_EMBED, name: 'wmode'}],
 	};
 	//赋默认值
-	attributesMap[ 'mtype' ][ 0 ][ 'default' ] = attributesMap[ 'mtype' ][ 1 ][ 'default' ] = "allMedias";
+	attributesMap[ 'mtype' ][ 0 ][ 'default' ] = attributesMap[ 'mtype' ][ 1 ][ 'default' ] = "allmedias";
 	var names = [ 'allowFullScreen', 'play', 'loop', 'menu' ];
 	for ( i = 0; i < names.length; i++ )
 		attributesMap[ names[ i ] ][ 0 ][ 'default' ] = attributesMap[ names[ i ] ][ 1 ][ 'default' ] = true;
 		attributesMap['seamlesstabbing'][0]['default'] = attributesMap['seamlesstabbing'][ 1 ][ 'default' ] = true;
-		
+
 	var mediaTypes = [  //video/x-ms-asf-plugin   application/x-mplayer2
 			{player:'wmpvideo',idx:0,
 				types: ['video/x-ms-asf-plugin','video/x-ms-asf-plugin','video/x-ms-asf-plugin','video/x-ms-asf-plugin'],
@@ -86,24 +86,24 @@
 				 pluginspage: 'http://www.apple.com/qtactivex',
 		         exts:['qt']
 			},
-			{player:'flashvideo',idx:0,types: ['application/x-shockwave-flash','application/x-shockwave-flash','application/x-shockwave-flash',			'application/x-shockwave-flash','application/x-shockwave-flash'],			
+			{player:'flashvideo',idx:0,types: ['application/x-shockwave-flash','application/x-shockwave-flash','application/x-shockwave-flash',			'application/x-shockwave-flash','application/x-shockwave-flash'],
 				 classid: 'clsid:d27cdb6e-ae6d-11cf-96b8-444553540000',
 				 codebase: 'http://download.macroallMedias.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0',
 				 pluginspage: 'http://www.macroallMedias.com/go/getflashplayer',
-				 src: 'plugins/allmedias/jwplayer.swf', //相对插件路径
+				 src: 'jwplayer.swf', //相对插件路径
 		         exts:['flv','mov','mp4','m4v','f4v']
 			},/*
-			{player:'flashaudio',idx:0,types: ['application/x-shockwave-flash'],			
+			{player:'flashaudio',idx:0,types: ['application/x-shockwave-flash'],
 				 classid: 'clsid:d27cdb6e-ae6d-11cf-96b8-444553540000',
 				 codebase: 'http://download.macroallMedias.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0',
 				 pluginspage: 'http://www.macroallMedias.com/go/getflashplayer',
 				 src: 'plugins/allmedias/player.swf', //相对插件路径
 		         exts:['mp3']
 			},*/
-			{player:'pdfReader',idx:0,types: ['application/pdf'],			
+			{player:'pdfReader',idx:0,types: ['application/pdf'],
 				 classid: 'clsid:d27cdb6e-ae6d-11cf-96b8-444553540000',
 				 codebase: 'http://download.macroallMedias.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0',
-				 pluginspage: 'http://www.macroallMedias.com/go/getflashplayer',				 
+				 pluginspage: 'http://www.macroallMedias.com/go/getflashplayer',
 		         exts:['pdf']
 			},
 	];
@@ -115,24 +115,24 @@
 		var i,
 			k,
 			mediaPlayer,
-			mp;			
+			mp;
 		if(!ext){return mediaTypes[0];}
 		for (i=0; i<mediaTypes.length; i++) {
 			mediaPlayer = mediaTypes[i];
 			//0-video 1-audio
-			if (mediaPlayer) {	
+			if (mediaPlayer) {
 				for(k=0; k<mediaPlayer.exts.length; k++)
 				{
 					if(ext == mediaPlayer.exts[k]){
 						mediaPlayer.idx = k;
 						return mediaPlayer;
 					}
-				}							
+				}
 			}
-		}		
+		}
 		return mediaTypes[0];
 	}
-	
+
 	//var names = [ 'play', 'loop', 'menu', 'quality', 'scale', 'salign', 'wmode', 'bgcolor', 'base', 'flashvars', 'allowScriptAccess', 'allowFullScreen','seamlesstabbing' ];
 	//for ( var i = 0; i < names.length; i++ )
 	//	attributesMap[ names[ i ] ] = [ {
@@ -246,7 +246,7 @@
 		}
 	}
 
-	CKEDITOR.dialog.add( 'allMedias', function( editor ) {
+	CKEDITOR.dialog.add( 'allmedias', function( editor ) {
 		//此处更改为仅支持embed标签，简单跨浏览器
 		//var makeObjectTag = !editor.config.allMediasEmbedTagOnly,
 		//	makeEmbedTag = editor.config.allMediasAddEmbedTag || editor.config.allMediasEmbedTagOnly;
@@ -257,9 +257,9 @@
 			previewAreaHtml = '<div>' + CKEDITOR.tools.htmlEncode( editor.lang.common.preview ) + '<br>' +
 			'<div id="cke_FlashPreviewLoader' + CKEDITOR.tools.getNextNumber() + '" style="display:none"><div class="loading">&nbsp;</div></div>' +
 			'<div id="cke_FlashPreviewBox' + CKEDITOR.tools.getNextNumber() + '" class="FlashPreviewBox" style="width:100%;"></div></div>';
-		
+
 		return {
-			title: editor.lang.allMedias.title,
+			title: editor.lang.allmedias.title,
 			minWidth: 420,
 			minHeight: 310,
 			onShow: function() {
@@ -269,7 +269,7 @@
 
 				// Try to detect any embed or object tag that has allMedias parameters.
 				var fakeImage = this.getSelectedElement();
-				if ( fakeImage && fakeImage.data( 'cke-real-element-type' ) && fakeImage.data( 'cke-real-element-type' ) == 'allMedias' ) {
+				if ( fakeImage && fakeImage.data( 'cke-real-element-type' ) && fakeImage.data( 'cke-real-element-type' ) == 'allmedias' ) {
 					this.fakeImage = fakeImage;
 
 					var realElement = editor.restoreRealElement( fakeImage ),
@@ -311,16 +311,16 @@
 						var attributes = {
 								classid: myExtPlayer.classid,
 								type: myExtPlayer.types[myExtPlayer.idx],
-								mtype: 'allMedias',
+								mtype: 'allmedias',
 								codebase: myExtPlayer.codebase
-							};						
+							};
 						objectNode.setAttributes( attributes );
 					}
 					if ( makeEmbedTag ) {
 						embedNode = CKEDITOR.dom.element.createFromHtml( '<cke:embed></cke:embed>', editor.document );
 						embedNode.setAttributes({
 							type: myExtPlayer.types[myExtPlayer.idx],
-							mtype: 'allMedias',
+							mtype: 'allmedias',
 							pluginspage: myExtPlayer.pluginspage
 						});
 						if ( objectNode )
@@ -331,7 +331,7 @@
 					embedNode = this.embedNode;
 					//如果更改文件，则有可能需要更改type
 					embedNode.setAttributes({
-							type: myExtPlayer.types[myExtPlayer.idx],							
+							type: myExtPlayer.types[myExtPlayer.idx],
 							pluginspage: myExtPlayer.pluginspage
 						});
 				}
@@ -341,7 +341,7 @@
 					paramMap = {};
 					var paramList = objectNode.getElementsByTag( 'param', 'cke' );
 					for ( var i = 0, length = paramList.count(); i < length; i++ )
-						paramMap[ paramList.getItem( i ).getAttribute( 'name' ) ] = paramList.getItem( i );						
+						paramMap[ paramList.getItem( i ).getAttribute( 'name' ) ] = paramList.getItem( i );
 				}
 
 				// A subset of the specified attributes/styles
@@ -352,33 +352,33 @@
 				this.commitContent( objectNode, embedNode, paramMap, extraStyles, extraAttributes );
 				//处理不同的文件类型
 				var attributes = {};
-				if(myExtPlayer.player == 'flashvideo'){					
+				if(myExtPlayer.player == 'flashvideo'){
 					attributes = {
 						flashvars: 'file=' + CKEDITOR.tools.htmlEncode( this.getValueOf('info',　'src') || '') ,
-						src: CKEDITOR.getUrl(myExtPlayer.src || '') 
-					};	
+						src: CKEDITOR.getUrl(CKEDITOR.plugins.getPath('allmedias') + myExtPlayer.src || '')
+					};
 				}else if(myExtPlayer.player =='wmpaudio'){
-					attributes = {						
+					attributes = {
 						src: CKEDITOR.tools.htmlEncode( this.getValueOf('info',　'src') || ''),
 						width: (this.getValueOf('info',　'width') || 400),
 						height: 45
-					};	
-				}/*else if(myExtPlayer.player == 'flashaudio'){					
-					attributes = { 
+					};
+				}/*else if(myExtPlayer.player == 'flashaudio'){
+					attributes = {
 						flashvars: 'soundFile=' + CKEDITOR.tools.htmlEncode( this.getValueOf('info',　'src') || '') ,
 						src: CKEDITOR.getUrl(myExtPlayer.src || '') ,
 						width: (this.getValueOf('info',　'width') || 50),
 						height: 25
-					};	
+					};
 				}*/
 				else{
-					attributes = {						
-						src: CKEDITOR.tools.htmlEncode( this.getValueOf('info',　'src') || '') 
-					};	
+					attributes = {
+						src: CKEDITOR.tools.htmlEncode( this.getValueOf('info',　'src') || '')
+					};
 				}
 				embedNode.setAttributes(attributes);
 				// Refresh the fake image.
-				var newFakeImage = editor.createFakeElement( objectNode || embedNode, 'cke_allMedias', 'allMedias', true );
+				var newFakeImage = editor.createFakeElement( objectNode || embedNode, 'cke_allMedias', 'allmedias', true );
 				newFakeImage.setAttributes( extraAttributes );
 				newFakeImage.setStyles( extraStyles );
 				if ( this.fakeImage ) {
@@ -413,10 +413,10 @@
 							type: 'text',
 							label: editor.lang.common.url,
 							required: true,
-							validate: CKEDITOR.dialog.validate.notEmpty( editor.lang.allMedias.validateSrc ),
+							validate: CKEDITOR.dialog.validate.notEmpty( editor.lang.allmedias.validateSrc ),
 							setup: loadValue,
 							commit: commitValue,
-							onLoad: function() {								
+							onLoad: function() {
 								var dialog = this.getDialog(),
 									updatePreview = function( src ) {
 										var width = dialog.getValueOf('info',　'width');
@@ -432,7 +432,7 @@
 											objsrc = ' flashvars="autostart=true&file=' + CKEDITOR.tools.htmlEncode( previewPreloader.getAttribute( 'src' )) +'" '
 											 +' style="height:' + height + 'px;width:'+ width +'px"'
 											 + 'pluginspage ="' + (mp.pluginspage || '') +'" '
-											 + 'src ="' + CKEDITOR.getUrl((mp.src || '')) +'" ';											
+											 + 'src ="' + CKEDITOR.getUrl((mp.src || '')) +'" ';
 										}
 										else if (mp.player == 'wmpaudio'){
 											width = (dialog.getValueOf('info',　'width') || 350);
@@ -441,7 +441,7 @@
 												+ 'pluginspage ="' + (mp.pluginspage || '') +'" '
 												+' style="height:' + height + 'px;width:'+ width +'px"';
 										}
-										/*else if(mp.player == 'flashaudio'){					
+										/*else if(mp.player == 'flashaudio'){
 											width = (dialog.getValueOf('info',　'width') || 25);
 										    height = (dialog.getValueOf('info',　'height') || 100);
 											objsrc = ' flashvars="autostart=true&soundFile=' + CKEDITOR.tools.htmlEncode( previewPreloader.getAttribute( 'src' )) +'" '
@@ -457,7 +457,7 @@
 												+ 'pluginspage ="' + (mp.pluginspage || '') +'" '
 												+' style="height:' + height + 'px;width:'+ width +'px"';
 										}
-										dialog.preview.setHtml( '<embed ' + objsrc 
+										dialog.preview.setHtml( '<embed ' + objsrc
 											+ ' autostart="true'
 											+ '" type="'+ mp.types[mp.idx] +'"></embed>' );
 									};
@@ -525,8 +525,8 @@
 						type: 'text',
 						id: 'hSpace',
 						style: 'width:95px',
-						label: editor.lang.allMedias.hSpace,
-						validate: CKEDITOR.dialog.validate.integer( editor.lang.allMedias.validateHSpace ),
+						label: editor.lang.allmedias.hSpace,
+						validate: CKEDITOR.dialog.validate.integer( editor.lang.allmedias.validateHSpace ),
 						setup: loadValue,
 						commit: commitValue
 					},
@@ -534,8 +534,8 @@
 						type: 'text',
 						id: 'vSpace',
 						style: 'width:95px',
-						label: editor.lang.allMedias.vSpace,
-						validate: CKEDITOR.dialog.validate.integer( editor.lang.allMedias.validateVSpace ),
+						label: editor.lang.allmedias.vSpace,
+						validate: CKEDITOR.dialog.validate.integer( editor.lang.allmedias.validateVSpace ),
 						setup: loadValue,
 						commit: commitValue
 					}
@@ -551,11 +551,11 @@
 						style: 'width:95%;',
 						html: previewAreaHtml
 					},
-					{						
+					{
 						type: 'text',
 						id: 'flashuri',
 						label: 'hid1',
-						'default': 'plugins/allmedias/jwplayer.swf',
+						'default': CKEDITOR.plugins.getPath('allmedias') + 'jwplayer.swf',
 						style: 'display : none;',
 						setup: loadValue,
 						commit: commitValue
@@ -587,7 +587,7 @@
 			},
 				{
 				id: 'properties',
-				label: editor.lang.allMedias.propertiesTab,
+				label: editor.lang.allmedias.propertiesTab,
 				elements: [
 					{
 					type: 'hbox',
@@ -596,14 +596,14 @@
 						{
 						id: 'scale',
 						type: 'select',
-						label: editor.lang.allMedias.scale,
+						label: editor.lang.allmedias.scale,
 						'default': '',
 						style: 'width : 100%;',
 						items: [
 							[ editor.lang.common.notSet, '' ],
-							[ editor.lang.allMedias.scaleAll, 'showall' ],
-							[ editor.lang.allMedias.scaleNoBorder, 'noborder' ],
-							[ editor.lang.allMedias.scaleFit, 'exactfit' ]
+							[ editor.lang.allmedias.scaleAll, 'showall' ],
+							[ editor.lang.allmedias.scaleNoBorder, 'noborder' ],
+							[ editor.lang.allmedias.scaleFit, 'exactfit' ]
 							],
 						setup: loadValue,
 						commit: commitValue
@@ -611,14 +611,14 @@
 						{
 						id: 'allowScriptAccess',
 						type: 'select',
-						label: editor.lang.allMedias.access,
+						label: editor.lang.allmedias.access,
 						'default': '',
 						style: 'width : 100%;',
 						items: [
 							[ editor.lang.common.notSet, '' ],
-							[ editor.lang.allMedias.accessAlways, 'always' ],
-							[ editor.lang.allMedias.accessSameDomain, 'samedomain' ],
-							[ editor.lang.allMedias.accessNever, 'never' ]
+							[ editor.lang.allmedias.accessAlways, 'always' ],
+							[ editor.lang.allmedias.accessSameDomain, 'samedomain' ],
+							[ editor.lang.allmedias.accessNever, 'never' ]
 							],
 						setup: loadValue,
 						commit: commitValue
@@ -632,14 +632,14 @@
 						{
 						id: 'wmode',
 						type: 'select',
-						label: editor.lang.allMedias.windowMode,
+						label: editor.lang.allmedias.windowMode,
 						'default': '',
 						style: 'width : 100%;',
 						items: [
 							[ editor.lang.common.notSet, '' ],
-							[ editor.lang.allMedias.windowModeWindow, 'window' ],
-							[ editor.lang.allMedias.windowModeOpaque, 'opaque' ],
-							[ editor.lang.allMedias.windowModeTransparent, 'transparent' ]
+							[ editor.lang.allmedias.windowModeWindow, 'window' ],
+							[ editor.lang.allmedias.windowModeOpaque, 'opaque' ],
+							[ editor.lang.allmedias.windowModeTransparent, 'transparent' ]
 							],
 						setup: loadValue,
 						commit: commitValue
@@ -647,17 +647,17 @@
 						{
 						id: 'quality',
 						type: 'select',
-						label: editor.lang.allMedias.quality,
+						label: editor.lang.allmedias.quality,
 						'default': 'high',
 						style: 'width : 100%;',
 						items: [
 							[ editor.lang.common.notSet, '' ],
-							[ editor.lang.allMedias.qualityBest, 'best' ],
-							[ editor.lang.allMedias.qualityHigh, 'high' ],
-							[ editor.lang.allMedias.qualityAutoHigh, 'autohigh' ],
-							[ editor.lang.allMedias.qualityMedium, 'medium' ],
-							[ editor.lang.allMedias.qualityAutoLow, 'autolow' ],
-							[ editor.lang.allMedias.qualityLow, 'low' ]
+							[ editor.lang.allmedias.qualityBest, 'best' ],
+							[ editor.lang.allmedias.qualityHigh, 'high' ],
+							[ editor.lang.allmedias.qualityAutoHigh, 'autohigh' ],
+							[ editor.lang.allmedias.qualityMedium, 'medium' ],
+							[ editor.lang.allmedias.qualityAutoLow, 'autolow' ],
+							[ editor.lang.allmedias.qualityLow, 'low' ]
 							],
 						setup: loadValue,
 						commit: commitValue
@@ -677,13 +677,13 @@
 						items: [
 							[ editor.lang.common.notSet, '' ],
 							[ editor.lang.common.alignLeft, 'left' ],
-							[ editor.lang.allMedias.alignAbsBottom, 'absBottom' ],
-							[ editor.lang.allMedias.alignAbsMiddle, 'absMiddle' ],
-							[ editor.lang.allMedias.alignBaseline, 'baseline' ],
+							[ editor.lang.allmedias.alignAbsBottom, 'absBottom' ],
+							[ editor.lang.allmedias.alignAbsMiddle, 'absMiddle' ],
+							[ editor.lang.allmedias.alignBaseline, 'baseline' ],
 							[ editor.lang.common.alignBottom, 'bottom' ],
 							[ editor.lang.common.alignMiddle, 'middle' ],
 							[ editor.lang.common.alignRight, 'right' ],
-							[ editor.lang.allMedias.alignTextTop, 'textTop' ],
+							[ editor.lang.allmedias.alignTextTop, 'textTop' ],
 							[ editor.lang.common.alignTop, 'top' ]
 							],
 						setup: loadValue,
@@ -701,7 +701,7 @@
 				},
 					{
 					type: 'fieldset',
-					label: CKEDITOR.tools.htmlEncode( editor.lang.allMedias.flashvars ),
+					label: CKEDITOR.tools.htmlEncode( editor.lang.allmedias.flashvars ),
 					children: [
 						{
 						type: 'vbox',
@@ -710,7 +710,7 @@
 							/*{
 							type: 'checkbox',
 							id: 'menu',
-							label: editor.lang.allMedias.chkMenu,
+							label: editor.lang.allmedias.chkMenu,
 							'default': true,
 							setup: loadValue,
 							commit: commitValue
@@ -718,24 +718,24 @@
 							{
 							type: 'checkbox',
 							id: 'loop',
-							label: editor.lang.allMedias.chkLoop,
-							'default': true,
-							setup: loadValue,
-							commit: commitValue
-						},						
-						{
-							type: 'checkbox',
-							id: 'play',
-							label: editor.lang.allMedias.chkPlay,
-							'default': true,
+							label: editor.lang.allmedias.chkLoop,
+							'default': false,
 							setup: loadValue,
 							commit: commitValue
 						},
-							
+						{
+							type: 'checkbox',
+							id: 'play',
+							label: editor.lang.allmedias.chkPlay,
+							'default': false,
+							setup: loadValue,
+							commit: commitValue
+						},
+
 							{
 							type: 'checkbox',
 							id: 'allowFullScreen',
-							label: editor.lang.allMedias.chkFull,
+							label: editor.lang.allmedias.chkFull,
 							'default': true,
 							setup: loadValue,
 							commit: commitValue
@@ -769,7 +769,7 @@
 						{
 						type: 'text',
 						id: 'bgcolor',
-						label: editor.lang.allMedias.bgcolor,
+						label: editor.lang.allmedias.bgcolor,
 						setup: loadValue,
 						commit: commitValue
 					},
