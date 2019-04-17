@@ -1,3 +1,7 @@
+Notes
+=====
+Now works with CKEditor 4.2!!!
+
 allmedias----- CKEditor plugin
 =========
 
@@ -20,6 +24,7 @@ In the CKEditor configuration file (config.js) add the following code:
 
         config.extraPlugins = '[ allmedias ]';
 
-If you custom the toolbar,please add 'allMedias' in 'name'.
+If you custom the toolbar,please add 'allmedias' in 'name'.
 
 如果你懂中文，请来 http://codeex.cn/category/web/ck ,欢迎加QQ群交流：173171134
+
